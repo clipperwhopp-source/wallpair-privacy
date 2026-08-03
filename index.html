@@ -25,53 +25,64 @@
   }
 }
 * { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.65;
   color: var(--text);
   background: var(--bg);
 }
 header {
-  padding: 2.5rem 1.25rem 1.25rem;
+  padding: 1.5rem 1.1rem 1rem;
   text-align: center;
   border-bottom: 1px solid var(--border);
   background: var(--card);
 }
-header h1 { margin: 0 0 0.35rem; font-size: 1.75rem; }
+header h1 { margin: 0 0 0.35rem; font-size: clamp(1.35rem, 4.5vw, 1.75rem); }
 header p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.95rem; }
 .lang-nav, .site-nav {
   display: flex;
   justify-content: center;
   gap: 0.65rem;
-  padding: 1rem;
+  padding: 0.85rem 1rem;
   flex-wrap: wrap;
 }
 .lang-nav a, .site-nav a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  padding: 0.4rem 0.9rem;
+  padding: 0.65rem 0.95rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--card);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 main {
+  width: 100%;
   max-width: 760px;
   margin: 0 auto;
-  padding: 1.25rem 1.25rem 3rem;
+  padding: 1rem 1.1rem 2.5rem;
 }
 section.panel {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.5rem 1.35rem;
-  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.1rem;
+  margin-bottom: 1.1rem;
 }
-h2 { margin: 0 0 1rem; font-size: 1.35rem; color: var(--accent); }
+h2 { margin: 0 0 1rem; font-size: clamp(1.2rem, 4vw, 1.35rem); color: var(--accent); }
 h3 { margin: 1.35rem 0 0.5rem; font-size: 1.05rem; }
-p, li { font-size: 1rem; }
+#contact, #iletisim, #en, #tr { scroll-margin-top: 1.25rem; }
+p, li { font-size: 1rem; line-height: 1.65; overflow-wrap: anywhere; }
 ul, ol { padding-left: 1.25rem; }
 .muted { color: var(--muted); font-size: 0.95rem; }
 .note {
@@ -89,14 +100,29 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid var(--border);
 }
-footer a { margin: 0 0.35rem; }
+footer a {
+  margin: 0.25rem 0.35rem;
+  display: inline-block;
+  padding: 0.35rem 0.25rem;
+  min-height: 44px;
+  line-height: 1.4;
+}
+@media (max-width: 480px) {
+  main { padding: 0.85rem 1rem 2.25rem; }
+  section.panel {
+    border-radius: 12px;
+    padding: 1.1rem 0.95rem;
+  }
+  .lang-nav, .site-nav { padding: 0.75rem 0.75rem; gap: 0.5rem; }
+}
 </style>
 </head>
 <body>
   <header>
     <h1>WallPair</h1>
     <p>Privacy Policy / Gizlilik Politikası</p>
-    <p class="muted">Effective date / Yürürlük: 22 July 2026</p>
+    <p class="muted">Last updated: 1 August 2026 · Son güncelleme: 1 Ağustos 2026</p>
+    <p class="muted">This revised version becomes effective when published. / Bu güncellenmiş sürüm yayınlandığında yürürlüğe girer.</p>
     <p class="muted">com.clipper.wallpair</p>
   </header>
 
@@ -107,13 +133,21 @@ footer a { margin: 0 0.35rem; }
   <nav class="site-nav" aria-label="Related pages">
     <a href="https://wallpair.pages.dev/delete-account">Delete Account</a>
     <a href="https://wallpair.pages.dev/terms">Terms of Use</a>
+
     <a href="mailto:clipper.whopp@gmail.com">Contact</a>
+
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a>
+    <a href="#contact">Contact</a>
+
   </nav>
 
   <main>
     <section id="en" class="panel" lang="en">
       <h2>1. Introduction</h2>
-      <p>This Privacy Policy explains how WallPair (“WallPair,” “we,” “the app”) handles information when you use the WallPair mobile application for Android and iOS (package / bundle ID <strong>com.clipper.wallpair</strong>). WallPair is provided by an individual developer. We do not sell your personal information.</p>
+      <p>This Privacy Policy explains how WallPair (“WallPair,” “we,” “the app”) handles information when you use the WallPair mobile application for Android and iOS (package / bundle ID <strong>com.clipper.wallpair</strong>). We do not sell your personal information.</p>
+      <h3>Data Controller</h3>
+      <p><strong>Data Controller:</strong> Aşkın Gündüz, individual developer of WallPair</p>
+      <p><strong>Contact:</strong> <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
 
       <h3>2. Information We Collect</h3>
       <p>Depending on how you use WallPair, we may process account and authentication information, partner-connection data, photos and wallpaper delivery data, device and notification tokens, subscription-related status, and local app preferences. Details are in the sections below.</p>
@@ -144,11 +178,11 @@ footer a { margin: 0 0.35rem; }
         <li>You may select images from your device to send or apply.</li>
         <li>Selected images may be uploaded to <strong>Firebase Storage</strong>.</li>
         <li>Image URLs and related delivery records may be stored in <strong>Firebase Realtime Database</strong>.</li>
-        <li>Images are shared with your selected connected partner.</li>
+        <li>Images are shared only through the connected-partner workflow with your selected connected partner.</li>
         <li><strong>iOS:</strong> a received image may be saved to Photos. You must apply it manually as wallpaper. WallPair does not directly set the iOS system wallpaper.</li>
-        <li><strong>Android:</strong> on supported devices, WallPair may use Android system APIs to apply home-screen and/or lock-screen wallpaper. Device and manufacturer restrictions may affect this behavior.</li>
+        <li><strong>Android:</strong> on supported devices, WallPair may use Android system APIs to apply home-screen and/or lock-screen wallpaper. Behavior may vary by device, Android version, manufacturer restrictions, or selected destination (home screen and/or lock screen).</li>
         <li>Content already saved or applied on another device cannot be remotely removed.</li>
-        <li>The current account-deletion implementation does <strong>not</strong> automatically delete all Firebase Storage wallpaper files.</li>
+        <li>The current account-deletion implementation does <strong>not</strong> automatically delete Firebase Storage wallpaper files. Those files may remain after account deletion.</li>
       </ul>
 
       <h3>6. Device and Notification Information</h3>
@@ -159,13 +193,22 @@ footer a { margin: 0 0.35rem; }
         <li>device identifiers / tokens used for push delivery</li>
         <li>notification permission choices on your device</li>
       </ul>
+      <p><strong>Notification permission is optional.</strong> You may deny notifications and continue using WallPair. Notifications may not be delivered if permission is denied or disabled. Operating-system delays, device restrictions, network restrictions, battery optimization, or similar conditions may also affect delivery. Notification delivery is not guaranteed. You can later change notification permission in your device settings. Denying or disabling notifications does not prevent you from opening WallPair and checking partner requests or wallpaper activity in the app.</p>
 
       <h3>7. Subscription and Purchase Information</h3>
+      <p>Where offered, WallPair may provide optional Premium access through auto-renewable subscriptions, including:</p>
       <ul>
-        <li>Purchases and entitlements are handled through <strong>RevenueCat</strong> together with the <strong>Apple App Store</strong> and/or <strong>Google Play</strong>.</li>
+        <li><strong>Monthly Premium</strong></li>
+        <li><strong>Annual Premium</strong></li>
+      </ul>
+      <ul>
+        <li>Localized price, duration, and renewal terms are displayed by the store before you purchase.</li>
+        <li>Payment is processed by the <strong>Apple App Store</strong> or <strong>Google Play</strong>, depending on your platform.</li>
+        <li><strong>RevenueCat</strong> manages entitlement and subscription status used by WallPair.</li>
         <li>Your Firebase UID may be used as the RevenueCat App User ID so subscription status can be associated with your WallPair account.</li>
         <li>Product, entitlement, transaction status, renewal / expiration status, and purchase history may be processed to provide Premium access.</li>
-        <li>WallPair does not receive complete payment-card details.</li>
+        <li>WallPair does not receive full payment-card details.</li>
+        <li>Deleting a WallPair account does <strong>not</strong> automatically cancel an App Store or Google Play subscription. Manage or cancel subscriptions in your Apple or Google account settings.</li>
         <li>Purchase and subscription records may remain with Apple, Google, and/or RevenueCat after you delete your WallPair account, according to their policies.</li>
       </ul>
 
@@ -183,7 +226,17 @@ footer a { margin: 0 0.35rem; }
         <li>operate, maintain, and improve core app functionality</li>
       </ul>
 
-      <h3>9. How Information Is Shared</h3>
+      <h3>9. Legal Bases for Processing</h3>
+      <p>Depending on the data and context, WallPair processes personal data where necessary:</p>
+      <ul>
+        <li>to provide and perform the WallPair service requested by the user;</li>
+        <li>to comply with applicable legal obligations;</li>
+        <li>for legitimate interests such as service security, fraud and abuse prevention, report handling, and service reliability, provided these interests do not override user rights;</li>
+        <li>based on user consent where consent is required, including optional device permissions controlled by the user.</li>
+      </ul>
+      <p class="muted">This section describes possible legal bases in general terms. It is not a claim of universal legal compliance, certification, or that every basis applies in every jurisdiction or for every processing activity.</p>
+
+      <h3>10. How Information Is Shared</h3>
       <ul>
         <li>with your connected partner, as needed for pairing and wallpaper delivery</li>
         <li>with service providers that process data for us (listed below)</li>
@@ -191,22 +244,28 @@ footer a { margin: 0 0.35rem; }
       </ul>
       <p>We do not sell your personal information.</p>
 
-      <h3>10. Third-Party Services</h3>
+      <h3>11. Third-Party Services</h3>
       <p>WallPair uses the following services, which process information under their own privacy terms:</p>
       <ul>
-        <li><strong>Google Firebase</strong> (Authentication, Realtime Database, Cloud Storage, Cloud Messaging, Cloud Functions)</li>
+        <li><strong>Firebase Authentication</strong></li>
+        <li><strong>Firebase Realtime Database</strong></li>
+        <li><strong>Firebase Storage</strong></li>
+        <li><strong>Firebase Cloud Messaging</strong></li>
+        <li><strong>Firebase Cloud Functions</strong></li>
         <li><strong>RevenueCat</strong> (subscription and entitlement management)</li>
         <li><strong>Google Sign-In</strong></li>
         <li><strong>Sign in with Apple</strong> (iOS)</li>
-        <li><strong>Apple App Store</strong> and <strong>Google Play</strong> (purchases and subscriptions)</li>
+        <li><strong>Apple App Store</strong></li>
+        <li><strong>Google Play</strong></li>
         <li><strong>Pexels</strong> (optional suggested wallpaper photos and photographer credits)</li>
         <li><strong>Unsplash</strong> (fallback suggested wallpaper images when used by the app)</li>
       </ul>
+      <p class="muted">WallPair does not currently use Firebase Analytics or Firebase Crashlytics for collecting analytics or crash data in the shipped app configuration described in this policy.</p>
 
-      <h3>11. Data Storage and International Processing</h3>
+      <h3>12. Data Storage and International Processing</h3>
       <p>Information may be processed and stored on infrastructure operated by Google/Firebase, Apple, Google Play, RevenueCat, and related providers. This may involve processing outside your country. By using WallPair, you understand that such processing may occur as described in those providers’ policies.</p>
 
-      <h3>12. Data Retention</h3>
+      <h3>13. Data Retention</h3>
       <ul>
         <li>Active account data is retained while needed to provide the service.</li>
         <li>Account data covered by the current deletion function is removed during the in-app (or verified support) deletion process.</li>
@@ -215,52 +274,72 @@ footer a { margin: 0 0.35rem; }
         <li>Limited reports or security records may be retained where reasonably necessary for fraud prevention, safety, legal compliance, or dispute handling.</li>
       </ul>
 
-      <h3>13. Account Deletion</h3>
+      <h3>14. Account Deletion</h3>
       <p>You can delete your account in the app: <strong>Settings → Delete Account</strong> (scroll to the bottom), then confirm and reauthenticate when asked.</p>
       <p>Public instructions are also available at <a href="https://wallpair.pages.dev/delete-account">https://wallpair.pages.dev/delete-account</a>.</p>
       <p>The current deletion process removes your Firebase Authentication account, WallPair profile, partner connection, partner requests, and related account-specific Realtime Database records handled by that flow. It does <strong>not</strong> automatically delete Firebase Storage wallpaper files. Deleting your WallPair account does <strong>not</strong> cancel App Store or Google Play subscriptions.</p>
+
       <p>If you cannot access the app, contact <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a>. We aim to process verified requests within 30 days. Ownership verification may be required.</p>
+
+      <p>If you cannot access the app, contact <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a>. We aim to process verified requests within 30 days. Identity / ownership verification may be required.</p>
 
       <div class="note">
         Older versions of this policy described deletion only by email. In-app deletion is now the primary method; email remains available if you cannot use the app.
       </div>
 
-      <h3>14. Security</h3>
+      <h3>15. Security</h3>
       <p>We use reasonable safeguards appropriate to the service, including HTTPS and authenticated access controls provided through Firebase and related platforms. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
 
-      <h3>15. Children’s Privacy</h3>
+      <h3>16. Children’s Privacy</h3>
       <p>WallPair is not intended for children under 13. Do not use WallPair if you are under 13, or if local law requires a higher minimum age without appropriate authorization. We do not knowingly collect personal information from children under 13. This statement is not a COPPA certification.</p>
 
-      <h3>16. User Choices and Rights</h3>
+      <h3>17. User Choices and Rights</h3>
+      <p>Depending on applicable law, you may request:</p>
       <ul>
-        <li>sign out of the app</li>
-        <li>disconnect from a partner</li>
-        <li>delete your account in Settings</li>
-        <li>manage notification permissions in device settings</li>
-        <li>manage or cancel subscriptions in your Apple or Google account</li>
-        <li>contact us about privacy questions or deletion requests</li>
+        <li>access to personal data</li>
+        <li>correction</li>
+        <li>deletion</li>
+        <li>restriction or objection</li>
+        <li>information about processing and recipients</li>
+        <li>withdrawal of consent where consent is the basis</li>
+        <li>complaint to a competent data-protection authority</li>
+        <li>data portability where applicable</li>
       </ul>
-      <p>Depending on where you live, you may have additional rights under local law. Contact us to make a request.</p>
+      <p>You may also manage notification permissions in your device settings, manage or cancel subscriptions in your Apple or Google account, sign out of the app, disconnect from a partner, and delete your WallPair account in Settings.</p>
+      <p>To exercise rights that require our assistance, contact <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a>. We may need to verify your identity before fulfilling a request. Some rights may not apply in every situation, and some processing may continue where another legal basis or exception applies.</p>
 
-      <h3>17. Changes to This Policy</h3>
-      <p>We may update this Privacy Policy. The effective date at the top will change when updates are published. Continued use of WallPair after an update means you accept the revised policy.</p>
+      <h3>18. Changes to This Policy</h3>
+      <p>We may update this Privacy Policy. The last-updated date at the top will change when updates are published. Continued use of WallPair after a published update means you accept the revised policy.</p>
+
 
       <h3>18. Contact</h3>
+
+      <h3 id="contact">19. Contact</h3>
+      <p><strong>Data Controller:</strong> Aşkın Gündüz, individual developer of WallPair</p>
+      <p><strong>Contact:</strong> <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
+
       <p>Privacy questions or support: <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
 
-      <h3>19. Effective Date</h3>
-      <p>This Privacy Policy is effective as of <strong>22 July 2026</strong>.</p>
+      <h3>20. Last Updated</h3>
+      <p><strong>Last updated:</strong> 1 August 2026</p>
+      <p class="muted">This revised version becomes effective when published.</p>
 
       <h3>Related links</h3>
       <ul>
         <li><a href="https://wallpair.pages.dev/delete-account">Delete Account instructions</a></li>
-        <li><a href="https://wallpair.pages.dev/terms">Terms of Use</a></li>
+        <li><a href="https://wallpair.pages.dev/terms">WallPair Terms of Use</a></li>
+        <li><a href="https://wallpair.pages.dev/support">Support</a></li>
+        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a> (applicable to the iOS App Store distribution of WallPair)</li>
       </ul>
+      <p class="muted">The WallPair Terms of Use govern use of the WallPair service. The Apple Standard EULA applies to Apple’s distribution of the iOS app through the App Store and is distinct from WallPair’s own Terms of Use.</p>
     </section>
 
     <section id="tr" class="panel" lang="tr">
       <h2>1. Giriş</h2>
-      <p>Bu Gizlilik Politikası, WallPair mobil uygulamasını (Android ve iOS; paket / bundle kimliği <strong>com.clipper.wallpair</strong>) kullandığınızda bilgilerin nasıl işlendiğini açıklar. WallPair, bireysel bir geliştirici tarafından sunulur. Kişisel bilgilerinizi satmayız.</p>
+      <p>Bu Gizlilik Politikası, WallPair mobil uygulamasını (Android ve iOS; paket / bundle kimliği <strong>com.clipper.wallpair</strong>) kullandığınızda bilgilerin nasıl işlendiğini açıklar. Kişisel bilgilerinizi satmayız.</p>
+      <h3>Veri Sorumlusu</h3>
+      <p><strong>Veri Sorumlusu:</strong> WallPair’in bireysel geliştiricisi Aşkın Gündüz</p>
+      <p><strong>İletişim:</strong> <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
 
       <h3>2. Topladığımız bilgiler</h3>
       <p>Kullanımınıza bağlı olarak hesap ve kimlik doğrulama bilgileri, partner bağlantı verileri, fotoğraf ve duvar kağıdı iletim verileri, cihaz ve bildirim jetonları, abonelik durumu ve yerel uygulama tercihleri işlenebilir.</p>
@@ -291,11 +370,11 @@ footer a { margin: 0 0.35rem; }
         <li>Cihazınızdan görsel seçebilirsiniz.</li>
         <li>Seçilen görseller <strong>Firebase Storage</strong>’a yüklenebilir.</li>
         <li>Görsel URL’leri ve ilgili iletim kayıtları <strong>Firebase Realtime Database</strong>’de saklanabilir.</li>
-        <li>Görseller seçili bağlı partnerinizle paylaşılır.</li>
+        <li>Görseller yalnızca bağlı partner iş akışı üzerinden seçili bağlı partnerinizle paylaşılır.</li>
         <li><strong>iOS:</strong> alınan görsel Fotoğraflar’a kaydedilebilir. Duvar kağıdı olarak elle uygulamanız gerekir. WallPair iOS sistem duvar kağıdını doğrudan ayarlamaz.</li>
-        <li><strong>Android:</strong> desteklenen cihazlarda WallPair, ana ekran ve/veya kilit ekranı duvar kağıdını Android sistem API’leriyle uygulayabilir. Cihaz ve üretici kısıtlamaları davranışı etkileyebilir.</li>
+        <li><strong>Android:</strong> desteklenen cihazlarda WallPair, ana ekran ve/veya kilit ekranı duvar kağıdını Android sistem API’leriyle uygulayabilir. Davranış; cihaz, Android sürümü, üretici kısıtlamaları veya seçilen hedefe (ana ekran ve/veya kilit ekranı) göre değişebilir.</li>
         <li>Başka bir cihaza kaydedilmiş veya uygulanmış içerik uzaktan kaldırılamaz.</li>
-        <li>Mevcut hesap silme uygulaması, Firebase Storage’daki tüm duvar kağıdı dosyalarını otomatik silmez.</li>
+        <li>Mevcut hesap silme uygulaması, Firebase Storage’daki duvar kağıdı dosyalarını otomatik silmez. Bu dosyalar hesap silindikten sonra kalabilir.</li>
       </ul>
 
       <h3>6. Cihaz ve bildirim bilgileri</h3>
@@ -306,13 +385,22 @@ footer a { margin: 0 0.35rem; }
         <li>push iletimi için kullanılan cihaz tanımlayıcıları / jetonlar</li>
         <li>cihazınızdaki bildirim izni tercihleri</li>
       </ul>
+      <p><strong>Bildirim izni isteğe bağlıdır.</strong> Bildirimleri reddedebilir ve WallPair’i kullanmaya devam edebilirsiniz. İzin reddedilirse veya kapatılırsa bildirimler iletilmeyebilir. İşletim sistemi gecikmeleri, cihaz kısıtlamaları, ağ kısıtlamaları, pil optimizasyonu veya benzer koşullar da iletimi etkileyebilir. Bildirim iletimi garanti edilmez. Bildirim iznini daha sonra cihaz ayarlarından değiştirebilirsiniz. Bildirimleri reddetmek veya kapatmak, WallPair’i açıp partner isteklerini veya duvar kağıdı etkinliğini uygulamadan kontrol etmenizi engellemez.</p>
 
       <h3>7. Abonelik ve satın alma bilgileri</h3>
+      <p>Sunulduğu yerlerde WallPair, otomatik yenilenen aboneliklerle isteğe bağlı Premium erişim sağlayabilir:</p>
       <ul>
-        <li>Satın alımlar ve haklar <strong>RevenueCat</strong> ile birlikte <strong>Apple App Store</strong> ve/veya <strong>Google Play</strong> üzerinden yönetilir.</li>
+        <li><strong>Aylık Premium</strong></li>
+        <li><strong>Yıllık Premium</strong></li>
+      </ul>
+      <ul>
+        <li>Yerelleştirilmiş fiyat, süre ve yenileme koşulları satın almadan önce mağaza tarafından gösterilir.</li>
+        <li>Ödeme, platformunuza göre <strong>Apple App Store</strong> veya <strong>Google Play</strong> tarafından işlenir.</li>
+        <li><strong>RevenueCat</strong>, WallPair’in kullandığı hak (entitlement) ve abonelik durumunu yönetir.</li>
         <li>Firebase UID’niz, abonelik durumunun WallPair hesabınızla ilişkilendirilmesi için RevenueCat App User ID olarak kullanılabilir.</li>
-        <li>Ürün, hak (entitlement), işlem durumu, yenileme / sona erme durumu ve satın alma geçmişi Premium erişim için işlenebilir.</li>
+        <li>Ürün, hak, işlem durumu, yenileme / sona erme durumu ve satın alma geçmişi Premium erişim için işlenebilir.</li>
         <li>WallPair tam ödeme kartı bilgilerini almaz.</li>
+        <li>WallPair hesabını silmek, App Store veya Google Play aboneliğini otomatik iptal etmez. Abonelikleri Apple veya Google hesap ayarlarınızdan yönetin veya iptal edin.</li>
         <li>WallPair hesabınız silindikten sonra satın alma ve abonelik kayıtları Apple, Google ve/veya RevenueCat’te kendi politikalarına göre kalabilir.</li>
       </ul>
 
@@ -330,7 +418,18 @@ footer a { margin: 0 0.35rem; }
         <li>temel uygulama işlevlerinin işletilmesi</li>
       </ul>
 
-      <h3>9. Bilgiler nasıl paylaşılır</h3>
+      <h3>9. Kişisel Veri İşlemenin Hukuki Sebepleri</h3>
+      <p>WallPair, kişisel verileri veri türüne ve işleme bağlamına göre:</p>
+      <ul>
+        <li>kullanıcının talep ettiği WallPair hizmetini sunmak ve sözleşmenin kurulması veya ifası için gerekli olduğu ölçüde;</li>
+        <li>ilgili hukuki yükümlülüklerin yerine getirilmesi amacıyla;</li>
+        <li>kullanıcı haklarını geçersiz kılmamak kaydıyla hizmet güvenliği, dolandırıcılık ve kötüye kullanımın önlenmesi, bildirimlerin değerlendirilmesi ve hizmet sürekliliği gibi meşru menfaatler kapsamında;</li>
+        <li>açık rızanın gerekli olduğu durumlarda ve kullanıcı tarafından kontrol edilen isteğe bağlı cihaz izinlerine dayanarak</li>
+      </ul>
+      <p>işleyebilir.</p>
+      <p class="muted">Bu bölüm olası hukuki sebepleri genel ifadelerle açıklar. Evrensel hukuki uyumluluk, belgelendirme veya her işlem için her ülkede her sebebin geçerli olduğu iddiası değildir.</p>
+
+      <h3>10. Bilgiler nasıl paylaşılır</h3>
       <ul>
         <li>eşleşme ve duvar kağıdı iletimi için bağlı partnerinizle</li>
         <li>aşağıda listelenen hizmet sağlayıcılarla</li>
@@ -338,21 +437,28 @@ footer a { margin: 0 0.35rem; }
       </ul>
       <p>Kişisel bilgilerinizi satmayız.</p>
 
-      <h3>10. Üçüncü taraf hizmetler</h3>
+      <h3>11. Üçüncü taraf hizmetler</h3>
+      <p>WallPair aşağıdaki hizmetleri kullanır; bu hizmetler kendi gizlilik koşullarına göre bilgi işler:</p>
       <ul>
-        <li><strong>Google Firebase</strong> (Authentication, Realtime Database, Cloud Storage, Cloud Messaging, Cloud Functions)</li>
-        <li><strong>RevenueCat</strong></li>
+        <li><strong>Firebase Authentication</strong></li>
+        <li><strong>Firebase Realtime Database</strong></li>
+        <li><strong>Firebase Storage</strong></li>
+        <li><strong>Firebase Cloud Messaging</strong></li>
+        <li><strong>Firebase Cloud Functions</strong></li>
+        <li><strong>RevenueCat</strong> (abonelik ve hak yönetimi)</li>
         <li><strong>Google Sign-In</strong></li>
         <li><strong>Sign in with Apple</strong> (iOS)</li>
-        <li><strong>Apple App Store</strong> ve <strong>Google Play</strong></li>
-        <li><strong>Pexels</strong> (isteğe bağlı önerilen duvar kağıdı fotoğrafları)</li>
+        <li><strong>Apple App Store</strong></li>
+        <li><strong>Google Play</strong></li>
+        <li><strong>Pexels</strong> (isteğe bağlı önerilen duvar kağıdı fotoğrafları ve fotoğrafçı kredileri)</li>
         <li><strong>Unsplash</strong> (uygulama tarafından kullanıldığında yedek önerilen görseller)</li>
       </ul>
+      <p class="muted">WallPair, bu politikada açıklanan mevcut uygulama yapılandırmasında Firebase Analytics veya Firebase Crashlytics ile analitik / çökme verisi toplamamaktadır.</p>
 
-      <h3>11. Veri saklama ve uluslararası işleme</h3>
+      <h3>12. Veri saklama ve uluslararası işleme</h3>
       <p>Bilgiler Google/Firebase, Apple, Google Play, RevenueCat ve ilgili sağlayıcı altyapısında işlenebilir ve saklanabilir; bu, ülkeniz dışında işlemeyi içerebilir.</p>
 
-      <h3>12. Veri saklama süresi</h3>
+      <h3>13. Veri saklama süresi</h3>
       <ul>
         <li>Aktif hesap verileri, hizmeti sunmak için gerekli olduğu sürece tutulur.</li>
         <li>Mevcut silme işlevinin kapsadığı hesap verileri, silme sürecinde kaldırılır.</li>
@@ -361,49 +467,74 @@ footer a { margin: 0 0.35rem; }
         <li>Sınırlı bildirim veya güvenlik kayıtları makul ölçüde gerekli olduğunda saklanabilir.</li>
       </ul>
 
-      <h3>13. Hesap silme</h3>
+      <h3>14. Hesap silme</h3>
       <p>Hesabınızı uygulamada silebilirsiniz: <strong>Ayarlar → Hesabı Sil</strong> (en alta kaydırın), ardından onaylayın ve istendiğinde yeniden kimlik doğrulayın.</p>
       <p>Genel talimatlar: <a href="https://wallpair.pages.dev/delete-account">https://wallpair.pages.dev/delete-account</a>.</p>
       <p>Mevcut silme süreci Firebase Authentication hesabınızı, WallPair profilinizi, partner bağlantınızı, partner isteklerini ve ilgili hesap bazlı Realtime Database kayıtlarını kaldırır. Firebase Storage duvar kağıdı dosyalarını otomatik silmez. WallPair hesabını silmek App Store veya Google Play aboneliğini iptal etmez.</p>
+
       <p>Uygulamaya erişemiyorsanız <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a> adresine yazın. Doğrulanmış talepleri 30 gün içinde işlemeyi hedefliyoruz. Sahiplik doğrulaması gerekebilir.</p>
 
-      <h3>14. Güvenlik</h3>
+      <p>Uygulamaya erişemiyorsanız <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a> adresine yazın. Doğrulanmış talepleri 30 gün içinde işlemeyi hedefliyoruz. Kimlik / sahiplik doğrulaması gerekebilir.</p>
+
+      <div class="note">
+        Bu politikanın eski sürümleri silmeyi yalnızca e-posta ile anlatıyordu. Uygulama içi silme artık birincil yöntemdir; uygulamayı kullanamıyorsanız e-posta hâlâ kullanılabilir.
+      </div>
+
+      <h3>15. Güvenlik</h3>
       <p>Hizmete uygun makul korumalar kullanırız (HTTPS ve Firebase üzerinden kimliği doğrulanmış erişim kontrolleri dahil). Hiçbir iletim veya saklama yöntemi tamamen güvenli değildir; mutlak güvenlik garanti edilemez.</p>
 
-      <h3>15. Çocukların gizliliği</h3>
+      <h3>16. Çocukların gizliliği</h3>
       <p>WallPair 13 yaşından küçük çocuklara yönelik değildir. 13 yaşından küçükseniz veya yerel hukuk daha yüksek bir asgari yaş gerektiriyorsa WallPair’i kullanmayın. 13 yaşından küçük çocuklardan bilerek kişisel bilgi toplamayız. Bu ifade bir COPPA belgelendirmesi değildir.</p>
 
-      <h3>16. Kullanıcı tercihleri ve haklar</h3>
+      <h3>17. Kullanıcı tercihleri ve haklar</h3>
+      <p>Yürürlükteki hukuka bağlı olarak şu taleplerde bulunabilirsiniz:</p>
       <ul>
-        <li>uygulamadan çıkış</li>
-        <li>partner bağlantısını kesme</li>
-        <li>Ayarlar’dan hesap silme</li>
-        <li>cihaz ayarlarından bildirim izinleri</li>
-        <li>Apple veya Google hesabından abonelik yönetimi / iptali</li>
-        <li>gizlilik soruları veya silme talepleri için iletişim</li>
+        <li>kişisel verilere erişim</li>
+        <li>düzeltme</li>
+        <li>silme</li>
+        <li>kısıtlama veya itiraz</li>
+        <li>işleme ve alıcılar hakkında bilgi</li>
+        <li>işlemenin rızaya dayandığı durumlarda rızanın geri alınması</li>
+        <li>yetkili bir veri koruma otoritesine şikayet</li>
+        <li>uygulanabilir olduğunda veri taşınabilirliği</li>
       </ul>
+      <p>Ayrıca cihaz ayarlarından bildirim izinlerini yönetebilir, Apple veya Google hesabınızdan abonelikleri yönetebilir veya iptal edebilir, uygulamadan çıkış yapabilir, partner bağlantısını kesebilir ve Ayarlar’dan WallPair hesabınızı silebilirsiniz.</p>
+      <p>Yardımımızı gerektiren haklarınızı kullanmak için <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a> adresine yazın. Talebi yerine getirmeden önce kimliğinizi doğrulamamız gerekebilir. Bazı haklar her durumda uygulanmayabilir; başka bir hukuki sebep veya istisna varsa işlem devam edebilir.</p>
 
-      <h3>17. Politikadaki değişiklikler</h3>
-      <p>Bu Gizlilik Politikası güncellenebilir. Yayınlandığında üstteki yürürlük tarihi değişir.</p>
+      <h3>18. Politikadaki değişiklikler</h3>
+      <p>Bu Gizlilik Politikası güncellenebilir. Yayınlandığında üstteki son güncelleme tarihi değişir. Yayımlanan bir güncellemeden sonra WallPair’i kullanmaya devam etmeniz, güncellenmiş politikayı kabul ettiğiniz anlamına gelir.</p>
+
 
       <h3>18. İletişim</h3>
       <p><a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
 
-      <h3>19. Yürürlük tarihi</h3>
-      <p>Bu Gizlilik Politikası <strong>22 Temmuz 2026</strong> itibarıyla yürürlüktedir.</p>
+      <h3 id="iletisim">19. İletişim</h3>
+      <p><strong>Veri Sorumlusu:</strong> WallPair’in bireysel geliştiricisi Aşkın Gündüz</p>
+      <p><strong>İletişim:</strong> <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
+      <p>Gizlilik soruları veya destek: <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a></p>
+
+      <h3>20. Son güncelleme</h3>
+      <p><strong>Son güncelleme:</strong> 1 Ağustos 2026</p>
+      <p class="muted">Bu güncellenmiş sürüm yayınlandığında yürürlüğe girer.</p>
 
       <h3>İlgili bağlantılar</h3>
       <ul>
         <li><a href="https://wallpair.pages.dev/delete-account">Hesap silme talimatları</a></li>
-        <li><a href="https://wallpair.pages.dev/terms">Kullanım Koşulları</a></li>
+        <li><a href="https://wallpair.pages.dev/terms">WallPair Kullanım Koşulları</a></li>
+        <li><a href="https://wallpair.pages.dev/support">Destek</a></li>
+        <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standart EULA</a> (WallPair’in iOS App Store dağıtımı için geçerlidir)</li>
       </ul>
+      <p class="muted">WallPair Kullanım Koşulları WallPair hizmetinin kullanımını düzenler. Apple Standart EULA, iOS uygulamasının App Store üzerinden Apple tarafından dağıtımına ilişkindir ve WallPair’in kendi Kullanım Koşullarından ayrıdır.</p>
     </section>
   </main>
 
   <footer>
     WallPair · com.clipper.wallpair ·
     <a href="https://wallpair.pages.dev/delete-account">Delete Account</a> ·
-    <a href="https://wallpair.pages.dev/terms">Terms</a>
+    <a href="https://wallpair.pages.dev/terms">Terms</a> ·
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple EULA</a> ·
+    <a href="#contact">Contact</a> ·
+    <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a>
   </footer>
 </body>
 </html>
