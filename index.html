@@ -121,7 +121,7 @@ footer a {
   <header>
     <h1>WallPair</h1>
     <p>Privacy Policy / Gizlilik Politikası</p>
-    <p class="muted">Last updated: 1 August 2026 · Son güncelleme: 1 Ağustos 2026</p>
+    <p class="muted">Last updated: 12 August 2026 · Son güncelleme: 12 Ağustos 2026</p>
     <p class="muted">com.clipper.wallpair</p>
   </header>
 
@@ -171,14 +171,17 @@ footer a {
 
       <h3>5. Photos and Wallpaper Content</h3>
       <ul>
-        <li>You may select images from your device to send or apply.</li>
+        <li>WallPair is private one-to-one wallpaper sharing with a connected partner. There is no public feed, public profile, random match, or in-app messaging.</li>
+        <li>You may select images from your device to send or apply. Free accounts may send a limited number of wallpapers (currently <strong>3 total lifetime sends</strong>, not a daily quota, and not intentionally reset by reinstalling). Premium provides unlimited wallpaper sends while entitlement is active.</li>
+        <li><strong>iOS:</strong> WallPair uses a system photo picker (PHPicker-style). Choosing a photo does not require broad read access to your entire photo library. When saving a received image, WallPair may use add-only Photos access. You must apply the image manually as wallpaper. WallPair does not set the iOS system wallpaper.</li>
+        <li><strong>Android:</strong> WallPair uses the system or scoped photo picker. With <strong>Trusted Partner</strong>, WallPair may auto-apply a received wallpaper to supported home-screen and/or lock-screen targets. With <strong>Approval Required</strong>, the recipient reviews the wallpaper first. Behavior may vary by device, Android version, manufacturer restrictions, or selected destination.</li>
         <li>Selected images may be uploaded to <strong>Firebase Storage</strong>.</li>
         <li>Image URLs and related delivery records may be stored in <strong>Firebase Realtime Database</strong>.</li>
         <li>Images are shared only through the connected-partner workflow with your selected connected partner.</li>
-        <li><strong>iOS:</strong> a received image may be saved to Photos. You must apply it manually as wallpaper. WallPair does not directly set the iOS system wallpaper.</li>
-        <li><strong>Android:</strong> on supported devices, WallPair may use Android system APIs to apply home-screen and/or lock-screen wallpaper. Behavior may vary by device, Android version, manufacturer restrictions, or selected destination (home screen and/or lock screen).</li>
+        <li><strong>Pending wallpaper media</strong> is intended to expire after roughly <strong>6 hours</strong> if not completed. Server-side cleanup may also run on acknowledge, reject, disconnect, block, or account deletion where those paths are implemented. Timing is approximate and not guaranteed to be instantaneous; WallPair does not claim instant deletion in every case, and does not provide an indefinite cloud archive of accepted deliveries.</li>
+        <li>Optional suggested stock photos may be shown from <strong>Pexels</strong>, with photographer attribution in the app. Unsplash is not currently used as an active suggested-photo provider.</li>
         <li>Content already saved or applied on another device cannot be remotely removed.</li>
-        <li>The current account-deletion implementation does <strong>not</strong> automatically delete Firebase Storage wallpaper files. Those files may remain after account deletion.</li>
+        <li>The current account-deletion implementation does <strong>not</strong> automatically delete all Firebase Storage wallpaper files. Some files may remain after account deletion.</li>
       </ul>
 
       <h3>6. Device and Notification Information</h3>
@@ -254,10 +257,9 @@ footer a {
         <li><strong>Sign in with Apple</strong> (iOS)</li>
         <li><strong>Apple App Store</strong></li>
         <li><strong>Google Play</strong></li>
-        <li><strong>Pexels</strong> (optional suggested wallpaper photos and photographer credits)</li>
-        <li><strong>Unsplash</strong> (fallback suggested wallpaper images when used by the app)</li>
+        <li><strong>Pexels</strong> (optional suggested wallpaper photos and photographer credits shown in the app)</li>
       </ul>
-      <p class="muted">WallPair does not currently use Firebase Analytics or Firebase Crashlytics for collecting analytics or crash data in the shipped app configuration described in this policy.</p>
+      <p class="muted">WallPair does not currently use Firebase Analytics or Firebase Crashlytics for collecting analytics or crash data in the shipped app configuration described in this policy. WallPair does not provide end-to-end encryption of wallpaper content or account data, and does not claim that administrators cannot access service data held by WallPair or its providers.</p>
 
       <h3>12. Data Storage and International Processing</h3>
       <p>Information may be processed and stored on infrastructure operated by Google/Firebase, Apple, Google Play, RevenueCat, and related providers. This may involve processing outside your country. By using WallPair, you understand that such processing may occur as described in those providers’ policies.</p>
@@ -265,8 +267,9 @@ footer a {
       <h3>13. Data Retention</h3>
       <ul>
         <li>Active account data is retained while needed to provide the service.</li>
+        <li>Pending wallpaper delivery media and related records are generally intended for short-lived use (about 6 hours for pending items, plus cleanup on certain connection or delivery events where implemented). Exact timing can vary.</li>
         <li>Account data covered by the current deletion function is removed during the in-app (or verified support) deletion process.</li>
-        <li>Cloud wallpaper files in Firebase Storage are not automatically deleted by the current deletion implementation and may remain.</li>
+        <li>Cloud wallpaper files in Firebase Storage are not always automatically deleted by every deletion or cleanup path and may remain for a period.</li>
         <li>Transaction and subscription records may be retained by Apple, Google, and/or RevenueCat.</li>
         <li>Limited reports or security records may be retained where reasonably necessary for fraud prevention, safety, legal compliance, or dispute handling.</li>
       </ul>
@@ -352,14 +355,17 @@ footer a {
 
       <h3>5. Fotoğraflar ve duvar kağıdı içeriği</h3>
       <ul>
-        <li>Cihazınızdan görsel seçebilirsiniz.</li>
+        <li>WallPair, bağlı partnerinizle özel bire bir duvar kağıdı paylaşımıdır. Herkese açık akış, herkese açık profil, rastgele eşleşme veya uygulama içi mesajlaşma yoktur.</li>
+        <li>Cihazınızdan görsel seçebilirsiniz. Ücretsiz hesaplar sınırlı sayıda duvar kağıdı gönderebilir (şu anda toplam <strong>ömür boyu 3 gönderim</strong>; günlük kota değildir ve yeniden yükleme ile kasıtlı olarak sıfırlanmaz). Premium, hak aktifken sınırsız gönderim sağlar.</li>
+        <li><strong>iOS:</strong> WallPair sistem fotoğraf seçicisini (PHPicker tarzı) kullanır. Görsel seçmek için tüm fotoğraf kitaplığına geniş okuma erişimi gerekmez. Alınan görseli kaydederken WallPair yalnızca ekleme (add-only) Fotoğraflar erişimi kullanabilir. Duvar kağıdını elle uygulamanız gerekir. WallPair iOS sistem duvar kağıdını ayarlamaz.</li>
+        <li><strong>Android:</strong> WallPair sistem veya kapsamlı (scoped) fotoğraf seçicisini kullanır. <strong>Güvenilir Partner</strong> ayarında WallPair, desteklenen ana ekran ve/veya kilit ekranı hedeflerine alınan duvar kağıdını otomatik uygulayabilir. <strong>Onay Gerekli</strong> ayarında alıcı önce inceler. Davranış; cihaz, Android sürümü, üretici kısıtlamaları veya seçilen hedefe göre değişebilir.</li>
         <li>Seçilen görseller <strong>Firebase Storage</strong>’a yüklenebilir.</li>
         <li>Görsel URL’leri ve ilgili iletim kayıtları <strong>Firebase Realtime Database</strong>’de saklanabilir.</li>
         <li>Görseller yalnızca bağlı partner iş akışı üzerinden seçili bağlı partnerinizle paylaşılır.</li>
-        <li><strong>iOS:</strong> alınan görsel Fotoğraflar’a kaydedilebilir. Duvar kağıdı olarak elle uygulamanız gerekir. WallPair iOS sistem duvar kağıdını doğrudan ayarlamaz.</li>
-        <li><strong>Android:</strong> desteklenen cihazlarda WallPair, ana ekran ve/veya kilit ekranı duvar kağıdını Android sistem API’leriyle uygulayabilir. Davranış; cihaz, Android sürümü, üretici kısıtlamaları veya seçilen hedefe (ana ekran ve/veya kilit ekranı) göre değişebilir.</li>
+        <li><strong>Bekleyen duvar kağıdı medyası</strong>, tamamlanmazsa yaklaşık <strong>6 saat</strong> sonra süresi dolacak şekilde tasarlanmıştır. Sunucu tarafı temizlik; onaylama, reddetme, bağlantıyı kesme, engelleme veya hesap silme gibi uygulanan yollarda da çalışabilir. Süreler yaklaşıktır ve anında silme her durumda garanti edilmez; WallPair kabul edilmiş iletimlerin süresiz bulut arşivini de sunmaz.</li>
+        <li>İsteğe bağlı önerilen stok fotoğraflar <strong>Pexels</strong> üzerinden gösterilebilir; fotoğrafçı atıfı uygulamada yer alır. Unsplash şu anda aktif önerilen-fotoğraf sağlayıcısı olarak kullanılmamaktadır.</li>
         <li>Başka bir cihaza kaydedilmiş veya uygulanmış içerik uzaktan kaldırılamaz.</li>
-        <li>Mevcut hesap silme uygulaması, Firebase Storage’daki duvar kağıdı dosyalarını otomatik silmez. Bu dosyalar hesap silindikten sonra kalabilir.</li>
+        <li>Mevcut hesap silme uygulaması, Firebase Storage’daki tüm duvar kağıdı dosyalarını otomatik silmez. Bazı dosyalar hesap silindikten sonra kalabilir.</li>
       </ul>
 
       <h3>6. Cihaz ve bildirim bilgileri</h3>
@@ -436,10 +442,9 @@ footer a {
         <li><strong>Sign in with Apple</strong> (iOS)</li>
         <li><strong>Apple App Store</strong></li>
         <li><strong>Google Play</strong></li>
-        <li><strong>Pexels</strong> (isteğe bağlı önerilen duvar kağıdı fotoğrafları ve fotoğrafçı kredileri)</li>
-        <li><strong>Unsplash</strong> (uygulama tarafından kullanıldığında yedek önerilen görseller)</li>
+        <li><strong>Pexels</strong> (isteğe bağlı önerilen duvar kağıdı fotoğrafları ve uygulamada gösterilen fotoğrafçı kredileri)</li>
       </ul>
-      <p class="muted">WallPair, bu politikada açıklanan mevcut uygulama yapılandırmasında Firebase Analytics veya Firebase Crashlytics ile analitik / çökme verisi toplamamaktadır.</p>
+      <p class="muted">WallPair, bu politikada açıklanan mevcut uygulama yapılandırmasında Firebase Analytics veya Firebase Crashlytics ile analitik / çökme verisi toplamamaktadır. WallPair duvar kağıdı içeriği veya hesap verileri için uçtan uca şifreleme (E2EE) sunmaz ve yöneticilerin WallPair veya sağlayıcılarında tutulan hizmet verilerine erişemeyeceğini iddia etmez.</p>
 
       <h3>12. Veri saklama ve uluslararası işleme</h3>
       <p>Bilgiler Google/Firebase, Apple, Google Play, RevenueCat ve ilgili sağlayıcı altyapısında işlenebilir ve saklanabilir; bu, ülkeniz dışında işlemeyi içerebilir.</p>
@@ -447,8 +452,9 @@ footer a {
       <h3>13. Veri saklama süresi</h3>
       <ul>
         <li>Aktif hesap verileri, hizmeti sunmak için gerekli olduğu sürece tutulur.</li>
+        <li>Bekleyen duvar kağıdı medyası ve ilgili kayıtlar genelde kısa ömürlü kullanım içindir (bekleyen öğeler için yaklaşık 6 saat; ayrıca uygulanan bağlantı veya iletim olaylarında temizlik). Tam süre değişebilir.</li>
         <li>Mevcut silme işlevinin kapsadığı hesap verileri, silme sürecinde kaldırılır.</li>
-        <li>Firebase Storage’daki bulut duvar kağıdı dosyaları mevcut silme uygulamasıyla otomatik silinmez ve kalabilir.</li>
+        <li>Firebase Storage’daki bulut duvar kağıdı dosyaları her silme veya temizlik yolunda her zaman otomatik silinmez ve bir süre kalabilir.</li>
         <li>İşlem ve abonelik kayıtları Apple, Google ve/veya RevenueCat tarafından saklanabilir.</li>
         <li>Sınırlı bildirim veya güvenlik kayıtları makul ölçüde gerekli olduğunda saklanabilir.</li>
       </ul>
