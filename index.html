@@ -121,7 +121,7 @@ footer a {
   <header>
     <h1>WallPair</h1>
     <p>Privacy Policy / Gizlilik Politikası</p>
-    <p class="muted">Last updated: 12 August 2026 · Son güncelleme: 12 Ağustos 2026</p>
+    <p class="muted">Last updated: 21 August 2026 · Son güncelleme: 21 Ağustos 2026</p>
     <p class="muted">com.clipper.wallpair</p>
   </header>
 
@@ -172,7 +172,7 @@ footer a {
       <h3>5. Photos and Wallpaper Content</h3>
       <ul>
         <li>WallPair is private one-to-one wallpaper sharing with a connected partner. There is no public feed, public profile, random match, or in-app messaging.</li>
-        <li>You may select images from your device to send or apply. Free accounts may send a limited number of wallpapers (currently <strong>3 total lifetime sends</strong>, not a daily quota, and not intentionally reset by reinstalling). Premium provides unlimited wallpaper sends while entitlement is active.</li>
+        <li>You may select images from your device to send or apply. Free accounts include <strong>3 free wallpaper sends in total per authentication identity</strong> (the same Apple account or the same Google account). This free allowance does not reset if you reinstall WallPair, change devices, change partners, delete your WallPair account, or create it again using the same Apple or Google account. A different Apple or Google account may receive a separate allowance. Premium provides unlimited wallpaper sends while entitlement is active.</li>
         <li><strong>iOS:</strong> WallPair uses a system photo picker (PHPicker-style). Choosing a photo does not require broad read access to your entire photo library. When saving a received image, WallPair may use add-only Photos access. You must apply the image manually as wallpaper. WallPair does not set the iOS system wallpaper.</li>
         <li><strong>Android:</strong> WallPair uses the system or scoped photo picker. With <strong>Trusted Partner</strong>, WallPair may auto-apply a received wallpaper to supported home-screen and/or lock-screen targets. With <strong>Approval Required</strong>, the recipient reviews the wallpaper first. Behavior may vary by device, Android version, manufacturer restrictions, or selected destination.</li>
         <li>Selected images may be uploaded to <strong>Firebase Storage</strong>.</li>
@@ -272,12 +272,13 @@ footer a {
         <li>Cloud wallpaper files in Firebase Storage are not always automatically deleted by every deletion or cleanup path and may remain for a period.</li>
         <li>Transaction and subscription records may be retained by Apple, Google, and/or RevenueCat.</li>
         <li>Limited reports or security records may be retained where reasonably necessary for fraud prevention, safety, legal compliance, or dispute handling.</li>
+        <li>A minimal <strong>pseudonymous free-usage anti-abuse record</strong> may be retained after WallPair account deletion solely to enforce the lifetime free-send allowance for that authentication identity (so deleting and recreating a WallPair account with the same Apple or Google account does not reset free usage). It does not contain your email, display name, photos, wallpapers, partner relationships, device identifier, or profile. It is not used for advertising or tracking. Retention continues while WallPair offers this free allowance (or until the service ends), because a short TTL would silently reset the lifetime limit.</li>
       </ul>
 
       <h3>14. Account Deletion</h3>
       <p>You can delete your account in the app: <strong>Settings → Delete Account</strong> (scroll to the bottom), then confirm and reauthenticate when asked.</p>
       <p>Public instructions are also available at <a href="https://wallpair.pages.dev/delete-account">https://wallpair.pages.dev/delete-account</a>.</p>
-      <p>The current deletion process removes your Firebase Authentication account, WallPair profile, partner connection, partner requests, and related account-specific Realtime Database records handled by that flow. It does <strong>not</strong> automatically delete Firebase Storage wallpaper files. Deleting your WallPair account does <strong>not</strong> cancel App Store or Google Play subscriptions.</p>
+      <p>Deleting your account removes your WallPair account and associated application data handled by the deletion flow (including your Firebase Authentication account, WallPair profile, partner connection, partner requests, and related account-specific Realtime Database records). It does <strong>not</strong> automatically delete all Firebase Storage wallpaper files. A minimal pseudonymous free-usage record may be retained only to prevent the 3 free-send allowance from resetting after account recreation with the same Apple or Google account. Deleting your WallPair account does <strong>not</strong> cancel App Store or Google Play subscriptions.</p>
 
       <p>If you cannot access the app, contact <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a>. We aim to process verified requests within 30 days. Identity / ownership verification may be required.</p>
 
@@ -356,7 +357,7 @@ footer a {
       <h3>5. Fotoğraflar ve duvar kağıdı içeriği</h3>
       <ul>
         <li>WallPair, bağlı partnerinizle özel bire bir duvar kağıdı paylaşımıdır. Herkese açık akış, herkese açık profil, rastgele eşleşme veya uygulama içi mesajlaşma yoktur.</li>
-        <li>Cihazınızdan görsel seçebilirsiniz. Ücretsiz hesaplar sınırlı sayıda duvar kağıdı gönderebilir (şu anda toplam <strong>ömür boyu 3 gönderim</strong>; günlük kota değildir ve yeniden yükleme ile kasıtlı olarak sıfırlanmaz). Premium, hak aktifken sınırsız gönderim sağlar.</li>
+        <li>Cihazınızdan görsel seçebilirsiniz. Ücretsiz hesaplar <strong>kimlik doğrulama kimliği başına toplam 3 ücretsiz duvar kağıdı gönderimi</strong> içerir (aynı Apple hesabı veya aynı Google hesabı). WallPair’i yeniden yüklemek, cihaz veya partner değiştirmek, WallPair hesabınızı silmek ya da aynı Apple veya Google hesabıyla yeniden oluşturmak bu ücretsiz hakkı sıfırlamaz. Farklı bir Apple veya Google hesabı ayrı bir hak alabilir. Premium, hak aktifken sınırsız gönderim sağlar.</li>
         <li><strong>iOS:</strong> WallPair sistem fotoğraf seçicisini (PHPicker tarzı) kullanır. Görsel seçmek için tüm fotoğraf kitaplığına geniş okuma erişimi gerekmez. Alınan görseli kaydederken WallPair yalnızca ekleme (add-only) Fotoğraflar erişimi kullanabilir. Duvar kağıdını elle uygulamanız gerekir. WallPair iOS sistem duvar kağıdını ayarlamaz.</li>
         <li><strong>Android:</strong> WallPair sistem veya kapsamlı (scoped) fotoğraf seçicisini kullanır. <strong>Güvenilir Partner</strong> ayarında WallPair, desteklenen ana ekran ve/veya kilit ekranı hedeflerine alınan duvar kağıdını otomatik uygulayabilir. <strong>Onay Gerekli</strong> ayarında alıcı önce inceler. Davranış; cihaz, Android sürümü, üretici kısıtlamaları veya seçilen hedefe göre değişebilir.</li>
         <li>Seçilen görseller <strong>Firebase Storage</strong>’a yüklenebilir.</li>
@@ -457,12 +458,13 @@ footer a {
         <li>Firebase Storage’daki bulut duvar kağıdı dosyaları her silme veya temizlik yolunda her zaman otomatik silinmez ve bir süre kalabilir.</li>
         <li>İşlem ve abonelik kayıtları Apple, Google ve/veya RevenueCat tarafından saklanabilir.</li>
         <li>Sınırlı bildirim veya güvenlik kayıtları makul ölçüde gerekli olduğunda saklanabilir.</li>
+        <li>WallPair hesabı silindikten sonra, yalnızca o kimlik doğrulama kimliği için ömür boyu ücretsiz gönderim hakkını uygulamak amacıyla minimum düzeyde <strong>takma adlı (pseudonymous) ücretsiz kullanım / kötüye kullanım önleme kaydı</strong> tutulabilir (aynı Apple veya Google hesabıyla hesabı silip yeniden oluşturmak ücretsiz kullanımı sıfırlamasın diye). Bu kayıt e-posta, görünen ad, fotoğraf, duvar kağıdı, partner ilişkileri, cihaz kimliği veya profil içermez; reklam veya izleme için kullanılmaz. WallPair bu ücretsiz hakkı sunduğu sürece (veya hizmet sona erene kadar) saklanır; kısa bir TTL ömür boyu limiti sessizce sıfırlardı.</li>
       </ul>
 
       <h3>14. Hesap silme</h3>
       <p>Hesabınızı uygulamada silebilirsiniz: <strong>Ayarlar → Hesabı Sil</strong> (en alta kaydırın), ardından onaylayın ve istendiğinde yeniden kimlik doğrulayın.</p>
       <p>Genel talimatlar: <a href="https://wallpair.pages.dev/delete-account">https://wallpair.pages.dev/delete-account</a>.</p>
-      <p>Mevcut silme süreci Firebase Authentication hesabınızı, WallPair profilinizi, partner bağlantınızı, partner isteklerini ve ilgili hesap bazlı Realtime Database kayıtlarını kaldırır. Firebase Storage duvar kağıdı dosyalarını otomatik silmez. WallPair hesabını silmek App Store veya Google Play aboneliğini iptal etmez.</p>
+      <p>Hesabınızı silmek, silme akışının kapsadığı WallPair hesabınızı ve ilişkili uygulama verilerini kaldırır (Firebase Authentication hesabı, WallPair profili, partner bağlantısı, partner istekleri ve ilgili hesap bazlı Realtime Database kayıtları dahil). Firebase Storage duvar kağıdı dosyalarının tümünü otomatik silmez. Aynı Apple veya Google hesabıyla yeniden oluşturmada 3 ücretsiz gönderim hakkının sıfırlanmasını önlemek için yalnızca minimum düzeyde takma adlı ücretsiz kullanım kaydı tutulabilir. WallPair hesabını silmek App Store veya Google Play aboneliğini iptal etmez.</p>
 
       <p>Uygulamaya erişemiyorsanız <a href="mailto:clipper.whopp@gmail.com">clipper.whopp@gmail.com</a> adresine yazın. Doğrulanmış talepleri 30 gün içinde işlemeyi hedefliyoruz. Kimlik / sahiplik doğrulaması gerekebilir.</p>
 
